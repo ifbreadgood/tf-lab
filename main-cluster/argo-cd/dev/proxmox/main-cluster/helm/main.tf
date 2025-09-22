@@ -49,7 +49,7 @@ variable "chart_version" {
 }
 
 data "github_repository_file" "values" {
-  file       = "helm-values/cilium/values.yaml"
+  file       = "helm-values/argo-cd/values.yaml"
   repository = "kubernetes-base"
 }
 

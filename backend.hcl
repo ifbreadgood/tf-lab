@@ -14,6 +14,7 @@ locals {
     location = local.location
     resource = local.resource
   }
+  modules_abs_dir = "/workspace/personal/infrastructure/terraform/modules"
   repo_abs_dir = "/workspace/personal/infrastructure/terraform/lab"
 }
 
