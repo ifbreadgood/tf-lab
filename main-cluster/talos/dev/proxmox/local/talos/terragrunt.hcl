@@ -12,7 +12,7 @@ inputs = {
   controller_ips      = ["10.0.0.10"]
   worker_ips          = []
   # worker_ips          = ["10.0.1.11", "10.0.1.12", "10.0.1.13"]
-  talos_version       = "1.11.1"
+  talos_version           = "1.11.1"
   kube_config_destination = "/workspace/kube-contexts/talos"
 }
 

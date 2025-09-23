@@ -1,5 +1,5 @@
 include "backend" {
-  path = find_in_parent_folders("backend.hcl")
+  path   = find_in_parent_folders("backend.hcl")
   expose = true
 }
 
@@ -8,9 +8,9 @@ terraform {
 }
 
 inputs = {
-  realm_name = "onprem"
-  client_name = "argo-workflows"
-  client_id = "argo-workflows"
+  realm_name          = "onprem"
+  client_name         = "argo-workflows"
+  client_id           = "argo-workflows"
   valid_redirect_uris = ["https://argo-workflows.trial.studio/oauth2/callback"]
 }
 

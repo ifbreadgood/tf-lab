@@ -1,5 +1,5 @@
 include "backend" {
-  path = find_in_parent_folders("backend.hcl")
+  path   = find_in_parent_folders("backend.hcl")
   expose = true
 }
 
@@ -8,9 +8,9 @@ terraform {
 }
 
 inputs = {
-  realm_name = "onprem"
+  realm_name  = "onprem"
   client_name = "kubernetes"
-  client_id = "kubernetes"
+  client_id   = "kubernetes"
   # kubectl oidc-login
   valid_redirect_uris = ["http://localhost:8000"]
 }

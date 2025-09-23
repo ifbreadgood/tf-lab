@@ -12,17 +12,17 @@ provider "github" {}
 
 locals {
   repositories = {
-    tf-modules = {}
-    tf-lab = {}
-    gh-workflow = {}
-    ansible = {}
+    tf-modules      = {}
+    tf-lab          = {}
+    gh-workflow     = {}
+    ansible         = {}
     kubernetes-base = {}
   }
 }
 
 module "repositories" {
-  for_each = local.repositories
-  source = "/workspace/personal/infrastructure/terraform/modules/github/repository"
-  name = each.key
+  for_each   = local.repositories
+  source     = "/workspace/personal/infrastructure/terraform/modules/github/repository"
+  name       = each.key
   visibility = "public"
 }

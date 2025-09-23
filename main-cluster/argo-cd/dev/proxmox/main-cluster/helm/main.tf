@@ -62,5 +62,5 @@ resource "helm_release" "this" {
   create_namespace = true
   atomic           = true
   timeout          = 5 * 60
-  values = [data.github_repository_file.values.content]
+  values           = [data.github_repository_file.values.content]
 }

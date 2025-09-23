@@ -1,5 +1,5 @@
 include "backend" {
-  path = find_in_parent_folders("backend.hcl")
+  path   = find_in_parent_folders("backend.hcl")
   expose = true
 }
 
@@ -8,9 +8,9 @@ terraform {
 }
 
 inputs = {
-  realm_name = "onprem"
-  client_name = "vault"
-  client_id = "vault"
+  realm_name          = "onprem"
+  client_name         = "vault"
+  client_id           = "vault"
   valid_redirect_uris = ["https://vault.trial.studio/ui/vault/auth/oidc/oidc/callback"]
 }
 

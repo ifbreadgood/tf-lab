@@ -1,5 +1,5 @@
 include "backend" {
-  path = find_in_parent_folders("backend.hcl")
+  path   = find_in_parent_folders("backend.hcl")
   expose = true
 }
 
@@ -30,22 +30,22 @@ inputs = {
     admin = {
       first_name = "admin"
       last_name  = "admin"
-      email = "admin@admin.com"
+      email      = "admin@admin.com"
     }
     sre = {
       first_name = "sre"
       last_name  = "sre"
-      email = "sre@sre.com"
+      email      = "sre@sre.com"
     }
     user1 = {
       first_name = "user1"
       last_name  = "user1"
-      email = "user1@user1.com"
+      email      = "user1@user1.com"
     }
     user2 = {
       first_name = "user2"
       last_name  = "user2"
-      email = "user2@user2.com"
+      email      = "user2@user2.com"
     }
   }
 }

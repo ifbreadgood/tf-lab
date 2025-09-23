@@ -34,6 +34,6 @@ data "http" "this" {
 }
 
 resource "kubernetes_manifest" "this" {
-  for_each = {for i in provider::kubernetes::manifest_decode_multi(data.http.this.response_body): i.metadata.name => {for k, v in i: k => v if k != "status"}}
+  for_each = { for i in provider::kubernetes::manifest_decode_multi(data.http.this.response_body) : i.metadata.name => { for k, v in i : k => v if k != "status" } }
   manifest = each.value
 }

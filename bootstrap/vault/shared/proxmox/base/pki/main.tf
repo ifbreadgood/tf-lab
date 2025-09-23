@@ -11,11 +11,11 @@ provider "vault" {}
 
 locals {
   # vault_url = "http://vault-global-active.vault-global:8200"
-  vault_url       = "https://vault.trial.studio"
-  seconds_1_month = 60 * 60 * 24 * 30
-  cert_algorithm  = "ec"
+  vault_url           = "https://vault.trial.studio"
+  seconds_1_month     = 60 * 60 * 24 * 30
+  cert_algorithm      = "ec"
   cert_algorithm_bits = 256
-  base_domain     = "trial.studio"
+  base_domain         = "trial.studio"
 }
 
 # --------- certificate authority
@@ -35,7 +35,7 @@ resource "vault_pki_secret_backend_root_cert" "root" {
   issuer_name          = "vault"
   ttl                  = local.seconds_1_month * 3
   key_type             = local.cert_algorithm
-  key_bits = local.cert_algorithm_bits
+  key_bits             = local.cert_algorithm_bits
   exclude_cn_from_sans = true
   alt_names            = [local.base_domain]
 }
@@ -84,7 +84,7 @@ resource "vault_pki_secret_backend_intermediate_cert_request" "int" {
   type                 = "internal"
   common_name          = "trialstudio intermediate"
   key_type             = local.cert_algorithm
-  key_bits = local.cert_algorithm_bits
+  key_bits             = local.cert_algorithm_bits
   exclude_cn_from_sans = true
   alt_names            = [local.base_domain]
 }
@@ -107,9 +107,9 @@ resource "vault_pki_secret_backend_intermediate_set_signed" "int" {
 }
 
 resource "vault_pki_secret_backend_issuer" "intermediate" {
-  backend                        = vault_mount.int.path
-  issuer_ref                     = vault_pki_secret_backend_intermediate_set_signed.int.imported_issuers[0]
-  issuer_name                    = "trialstudio-intermediate"
+  backend     = vault_mount.int.path
+  issuer_ref  = vault_pki_secret_backend_intermediate_set_signed.int.imported_issuers[0]
+  issuer_name = "trialstudio-intermediate"
   # revocation_signature_algorithm = title(local.cert_algorithm)
 }
 
@@ -121,12 +121,12 @@ resource "vault_pki_secret_backend_role" "int" {
   max_ttl                     = local.seconds_1_month * 3
   allow_ip_sans               = true
   key_type                    = local.cert_algorithm
-  key_bits = local.cert_algorithm_bits
+  key_bits                    = local.cert_algorithm_bits
   allowed_domains             = [local.base_domain]
   allow_subdomains            = true
   allow_glob_domains          = true
   allow_wildcard_certificates = true
-  require_cn = false
+  require_cn                  = false
 }
 
 resource "vault_pki_secret_backend_config_cluster" "int" {
@@ -162,10 +162,10 @@ EOT
 }
 
 resource "vault_generic_endpoint" "int" {
-  data_json = jsonencode({enabled = true})
-  path      = "${vault_mount.int.path}/config/acme"
+  data_json            = jsonencode({ enabled = true })
+  path                 = "${vault_mount.int.path}/config/acme"
   ignore_absent_fields = true
-  disable_delete = true
+  disable_delete       = true
 }
 # ------------- leaf
 
