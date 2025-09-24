@@ -18,10 +18,10 @@ provider "adguard" {
 
 locals {
   domains = {
-    "proxmox.trial.studio"          = "10.0.0.4"
-    "base.trial.studio"             = "10.0.0.5"
-    "asterisk.trial.studio"         = "10.0.0.55"
-    "adguard.trial.studio"          = "10.0.0.5"
+    "proxmox.trial.studio"  = "10.0.0.4"
+    "base.trial.studio"     = "10.0.0.5"
+    "asterisk.trial.studio" = "10.0.0.55"
+    "adguard.trial.studio"  = "10.0.0.5"
 
     "haproxy.trial.studio"          = "10.0.0.5"
     "keycloak.trial.studio"         = "10.0.0.5"
@@ -31,11 +31,12 @@ locals {
     "victoria-metrics.trial.studio" = "10.0.0.5"
     "victoria-logs.trial.studio"    = "10.0.0.5"
 
-    "vault-direct.trial.studio"     = "10.0.0.104"
+    "vault-direct.trial.studio" = "10.0.0.104"
 
-    "argo-cd.trial.studio"          = "10.0.0.128"
-    "argo-workflows.trial.studio"   = "10.0.0.128"
-    "argo-events.trial.studio"      = "10.0.0.128"
+    "argo-cd.trial.studio"        = "10.0.0.129"
+    "kiali.trial.studio"          = "10.0.0.129"
+    "argo-workflows.trial.studio" = "10.0.0.128"
+    "argo-events.trial.studio"    = "10.0.0.128"
   }
 }
 
