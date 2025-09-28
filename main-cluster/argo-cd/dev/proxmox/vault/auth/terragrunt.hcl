@@ -6,6 +6,10 @@ dependency "keycloak" {
   config_path = "../../keycloak/oidc"
 }
 
+dependencies {
+  paths = ["${get_path_to_repo_root()}/main-cluster/vault/dev/proxmox/base/kubernetes-auth"]
+}
+
 inputs = {
   name = "argo-cd"
   data = {
